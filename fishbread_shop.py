@@ -27,6 +27,19 @@ def order_bread():
                 print(f"재고가 부족합니다. 현재 {stock[bread_type]}개만 주문 가능합니다.")
         else:
             print("정신을 똑바로 차리시고 주문을 다시해주세요👺")
+
+def admin_mode():
+    while True:
+        bread_type = input("추가할 붕어빵 종류를 입력하세요 (팥붕어빵, 슈크림붕어빵, 초코붕어빵) 또는 '종료' 입력: ")
+        if bread_type == "종료":
+            break
+        if bread_type in stock:
+            bread_count = int(input("추가할 개수를 입력하세요: "))
+            stock[bread_type] += bread_count
+            print(f"{bread_type}의 재고가 {bread_count}개 추가되어 현재 {stock[bread_type]}개 입니다.")
+        else:
+            print("올바른 메뉴를 입력하세요.")
+    
 while True:
     mode = input("원하는 모드를 선택하세요(주문, 관리자, 종료): ") #주문
     #mode = "종료"
